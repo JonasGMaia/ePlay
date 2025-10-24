@@ -1,15 +1,55 @@
+import {
+  DarkSectionTitle,
+  FooterContainer,
+  FooterLink,
+  FooterLinks,
+  SubDivFooter
+} from './styles'
+
+const currentYear = new Date().getFullYear()
+
 const Footer = () => (
-  <div>
+  <FooterContainer>
     <div className="container">
-      <div>
-        <h4>Categorias</h4>
-      </div>
-      <div>
-        <h4>Acesso rápido</h4>
-      </div>
-      <p>2025 - &copy; ePlay Todos os direitos reservados</p>
+      <SubDivFooter>
+        <DarkSectionTitle>Categorias</DarkSectionTitle>
+        <FooterLinks>
+          <li>
+            <FooterLink>RPG</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Mistério</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Estratégia</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Party Games</FooterLink>
+          </li>
+        </FooterLinks>
+      </SubDivFooter>
+      <SubDivFooter>
+        <DarkSectionTitle>Acesso rápido</DarkSectionTitle>
+        <FooterLinks>
+          <li>
+            <FooterLink>Promoções</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Novidades</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Em Breve</FooterLink>
+          </li>
+          <li>
+            <FooterLink>Fale Conosco</FooterLink>
+          </li>
+        </FooterLinks>
+      </SubDivFooter>
     </div>
-  </div>
+    <div className="container">
+      <p>{currentYear} - &copy; ePlay Todos os direitos reservados</p>
+    </div>
+  </FooterContainer>
 )
 
 export default Footer
