@@ -1,17 +1,22 @@
+import { Link } from 'react-router-dom'
 import { Container } from '../../styles'
 import { HeaderBar, Links } from './styles'
 import Logo from '../../assets/images/Logo.jpg'
+
 const Header = () => (
   <HeaderBar>
-    <Container>
-      <div>
-        <img src={Logo} alt="" />
-        <h2>ePlay - Loja de Games</h2>
-      </div>
+    <div className="container">
+      <Link to="/">
+        <div className="homeCabecalho">
+          <img src={Logo} alt="" />
+          <h2>ePlay</h2>
+          <p>Games</p>
+        </div>
+      </Link>
       <nav>
         <Links>
           <li>
-            <a href="#">Categorias</a>
+            <Link to="/categories">Categorias</Link>
           </li>
           <li>
             <a href="#">Novidades</a>
@@ -24,7 +29,7 @@ const Header = () => (
           </li>
         </Links>
       </nav>
-    </Container>
+    </div>
   </HeaderBar>
 )
 

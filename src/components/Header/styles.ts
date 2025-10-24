@@ -2,18 +2,27 @@ import styled from 'styled-components'
 import { Cores } from '../../styles'
 
 export const HeaderBar = styled.header`
-  padding: 50px 24px 0px 24px;
+  padding: 30px 24px 0px 24px;
   text-align: left;
   img {
     max-height: 100px;
   }
-  // border-top: 2px solid ${Cores.vermelho};
-
-  div {
+  .container {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .homeCabecalho {
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      link-style: none;
+      text-decoration: none;
+      color: ${Cores.cinza};
+    }
   }
 `
 export const Links = styled.ul`
@@ -24,11 +33,13 @@ export const Links = styled.ul`
       text-decoration: none;
       color: ${Cores.cinza};
       padding: 20px;
+      transition-property: all;
+      transition-duration: 0.5s;
 
       &:hover {
         background-color: ${Cores.vermelho};
         color: ${Cores.branco};
-        border-radius: 3px;
+        border-radius: 8px;
       }
     }
   }
