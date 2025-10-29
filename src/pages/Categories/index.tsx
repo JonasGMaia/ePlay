@@ -1,91 +1,51 @@
+import { useEffect, useState } from 'react'
 import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
+import { Game } from '../Home'
 
-const promocoes: Game[] = [
-  {
-    id: 1,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 2,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 3,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 4,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  }
-]
+// const promocoes: Game[] = []
 
-const emBreve: Game[] = [
-  {
-    id: 5,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 6,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 7,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  },
-  {
-    id: 8,
-    category: 'RPG',
-    description: 'teste teste teste teste',
-    title: 'Nome do Jogo',
-    system: 'D&D',
-    infos: ['10%', 'R$ 153,90'],
-    image: ''
-  }
-]
+// const emBreve: Game[] = []
 
-const Categories = () => (
-  <>
-    <ProductsList games={promocoes} title={'RPG'} background={'white'} />
-    <ProductsList games={emBreve} title={'Mistério'} background={'gray'} />
-    <ProductsList games={promocoes} title={'Estratégia'} background={'white'} />
-    <ProductsList games={emBreve} title={'Party Games'} background={'gray'} />
-  </>
-)
+const Categories = () => {
+  const [gameAcao, setGameAcao] = useState<Game[]>([])
+  const [gameEsporte, setGameEsporte] = useState<Game[]>([])
+  const [gameSimulacao, setGameSimulacao] = useState<Game[]>([])
+  const [gameRPG, setGameRPG] = useState<Game[]>([])
+
+  useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/eplay/acao')
+      .then((res) => res.json())
+      .then((res) => setGameAcao(res))
+
+    fetch('https://api-ebac.vercel.app/api/eplay/esportes')
+      .then((res) => res.json())
+      .then((res) => setGameEsporte(res))
+
+    fetch('https://api-ebac.vercel.app/api/eplay/simulacao')
+      .then((res) => res.json())
+      .then((res) => setGameSimulacao(res))
+
+    fetch('https://api-ebac.vercel.app/api/eplay/rpg')
+      .then((res) => res.json())
+      .then((res) => setGameRPG(res))
+  })
+
+  return (
+    <>
+      <ProductsList games={gameAcao} title={'Ação'} background={'white'} />
+      <ProductsList
+        games={gameEsporte}
+        title={'Esportes'}
+        background={'gray'}
+      />
+      <ProductsList
+        games={gameSimulacao}
+        title={'Simulação'}
+        background={'white'}
+      />
+      <ProductsList games={gameRPG} title={'RPG'} background={'gray'} />
+    </>
+  )
+}
 
 export default Categories

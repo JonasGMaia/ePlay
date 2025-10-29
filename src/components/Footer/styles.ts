@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
   paddding: 32px 0px;
   font-size: 14px;
   color: ${Cores.cinza2};
+  padding-top: 50px;
 
   .container {
     display: flex;

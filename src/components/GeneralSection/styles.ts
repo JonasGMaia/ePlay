@@ -5,22 +5,20 @@ import { Cores } from '../../styles'
 export const Section = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
   height: auto;
-  min-height: 100vh;
   background-color: ${(props) =>
-    props.background === 'white' ? Cores.branco : Cores.cinza};
-  h2 {
-    color: ${(props) =>
-      props.background === 'white' ? Cores.cinza : Cores.branco};
-  }
-`
+    props.background === 'black' ? Cores.preto : Cores.cinza};
+  color: ${(props) =>
+    props.background === 'black' ? Cores.branco : Cores.cinza2};
 
-export const List = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 24px;
-  margin-top: 40px;
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 640px;
+  }
+  }
 `
 export const Title = styled.h2`
   font-size: 18px;
   font-weight; bold;
+  margin-bottom: 40px;
 `

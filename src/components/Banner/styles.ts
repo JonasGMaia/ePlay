@@ -24,7 +24,8 @@ export const ImagemBg = styled.div`
 
   ${TagContainer} {
     position: absolute;
-    top: -280px;
+    top: -290px;
+    font-size: 12px;
   }
 
   h3,
